@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Personajlar
+{% endblock %}
+
+{% block content %}
+<div class="card shadow-sm">
+    <div class="card-body p-4">
+        <span class="badge rounded-pill badge-kicker mb-3">
+            <i class="bi bi-collection"></i>
+            Siyahı
+        </span>
+        <div class="d-flex flex-wrap align-items-start justify-content-between gap-2 mb-2">
+            <h1 class="mb-0">Personajlar</h1>
+            <a class="btn btn-primary" href="{% url 'characters:character_create' %}">
+                <i class="bi bi-plus-lg"></i>
+                Yeni personaj
+            </a>
+        </div>
+        {% with items|length as count %}
+        <p class="text-secondary">
+            Bütün personajlar: {{ count }} ədəd
+        </p>
+        {% endwith %}
+
+        {% if items %}
+            <div class="table-responsive">
+                <table class="table align-middle">
+                    <thead>
+                        <tr>
+                            <th>Ad</th>
+                            <th>Tip</th>
+                            <th>Health</th>
+                            <th>Attack Power</th>
+                            <th>Sağdır?</th>
+                            <th>Məlumat</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in items %}
+                            <tr>
+                                <td class="fw-semibold">{{ item.name }}</td>
+                                <td>{{ item.type }}</td>
+                                <td>{{ item.health }}</td>
+                                <td>{{ item.attack_power }}</td>
+                                <td>
+                                    {% if item.is_alive %}
+                                        <span class="badge text-bg-success">Sağdır</span>
+                                    {% else %}
+                                        <span class="badge text-bg-danger">Ölüb</span>
+                                    {% endif %}
+                                </td>
+                                <td class="small text-secondary">{{ item.info|linebreaksbr }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <div class="alert alert-light">
+                <h3 class="h5 mb-0">Göstərmək üçün heç bir personaj yoxdur</h3>
+            </div>
+        {% endif %}
+
+        <a class="btn btn-primary mt-2" href="{% url 'characters:character_attack' %}">
+            Hücum səhifəsinə keç →
+        </a>
+    </div>
+</div>
+{% endblock %}

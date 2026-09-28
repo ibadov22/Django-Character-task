@@ -1,0 +1,80 @@
+:root {
+    --ink: #1a1c2c;
+    --violet: #5b4bdb;
+    --violet-deep: #4433b8;
+    --mist: #6b7280;
+
+    --bs-primary: #5b4bdb;
+    --bs-primary-rgb: 91, 75, 219;
+    --bs-body-bg: #f4f3fb;
+    --bs-body-color: #1a1c2c;
+    --bs-link-color: #5b4bdb;
+    --bs-link-hover-color: #4433b8;
+    --bs-border-radius: 0.8rem;
+}
+
+body {
+    background: #6359a3;
+}
+
+.navbar {
+    background-color: var(--ink);
+}
+
+.navbar .nav-link.active {
+    color: #ffffff;
+}
+
+.navbar .nav-link.active::after {
+    content: "";
+    display: block;
+    height: 3px;
+    margin-top: 0.12rem;
+    background: var(--violet);
+}
+
+.btn-primary {
+    --bs-btn-bg: var(--violet);
+    --bs-btn-border-color: var(--violet);
+    --bs-btn-hover-bg: var(--violet-deep);
+    --bs-btn-hover-border-color: var(--violet-deep);
+    --bs-btn-active-bg: var(--violet-deep);
+    --bs-btn-active-border-color: var(--violet-deep);
+}
+
+.badge-kicker {
+    background-color: rgba(91, 75, 219, 0.12);
+    color: var(--violet-deep);
+    font-weight: 600;
+}
+
+.demo-code {
+    background: var(--ink);
+    color: #576a92;
+    border-radius: 0.6rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+    white-space: pre-wrap;
+}
+
+.demo-result {
+    background: #ecebfa;
+    border-radius: 0.6rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+    white-space: pre-wrap;
+}
+
+.errorlist {
+    color: #b02a37;
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0.5rem;
+}
+
+.helptext {
+    display: block;
+    color: var(--mist);
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+}

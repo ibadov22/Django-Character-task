@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Ana Səhifə
+{% endblock %}
+
+{% block content %}
+    <div class="card shadow-sm">
+        <div class="card-body p-4 p-lg-5">
+            <span class="badge rounded-pill badge-kicker mb-3">
+                <i class="bi bi-shield-shaded"></i>
+                Python OOP + Django
+            </span>
+            <h1>Characters OOP</h1>
+
+            <p class="text-secondary">
+                Bu layihədə Character, Warrior, Mage və Archer class-ları ilə
+                inheritance, polymorphism və magic method-lar göstərilir.
+            </p>
+
+            <div class="d-flex flex-wrap gap-2 mt-3">
+                <a class="btn btn-primary" href="{% url 'characters:characters_list' %}">
+                    Personajlar →
+                </a>
+                <a class="btn btn-outline-secondary" href="{% url 'characters:character_create' %}">
+                    Yeni personaj
+                </a>
+                <a class="btn btn-outline-secondary" href="{% url 'characters:character_attack' %}">
+                    Hücum
+                </a>
+                <a class="btn btn-outline-secondary" href="{% url 'characters:oop_demo' %}">
+                    OOP demo
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

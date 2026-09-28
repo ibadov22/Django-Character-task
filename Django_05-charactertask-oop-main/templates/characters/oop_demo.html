@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	OOP demo
+{% endblock %}
+
+{% block content %}
+<div class="card shadow-sm">
+    <div class="card-body p-4">
+        <span class="badge rounded-pill badge-kicker mb-3">
+            <i class="bi bi-braces"></i>
+            OOP demo
+        </span>
+        <h1>OOP demo</h1>
+        <p class="text-secondary">
+            Aşağıdakı nəticələr characters/demo.py faylındakı real Python obyektləri ilə alınıb.
+        </p>
+
+        <div class="row g-3 my-3">
+            {% for section in sections %}
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="h5 mb-2">{{ section.title }}</h2>
+                            <pre class="demo-code">{{ section.code }}</pre>
+                            <pre class="demo-result mb-0">{{ section.result }}</pre>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <a class="btn btn-primary" href="{% url 'home' %}">
+            ← Ana səhifəyə qayıt
+        </a>
+    </div>
+</div>
+{% endblock %}
